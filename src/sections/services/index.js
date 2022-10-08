@@ -3,15 +3,14 @@ import { Row, Col, Container } from 'react-bootstrap'
 import BaffleText from 'components/baffle-text'
 import AnimationContainer from 'components/animation-container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faReact, faAngular, faAws, faWordpress } from '@fortawesome/free-brands-svg-icons'
+import { faReact, faWordpress } from '@fortawesome/free-brands-svg-icons'
 import {
   faPencilRuler,
-  faServer,
-  faRobot,
   faSmileBeam,
   faPizzaSlice,
   faQuoteRight,
   faCode,
+  faMobile,
 } from '@fortawesome/free-solid-svg-icons'
 import Counter from 'components/counter'
 import ThemeContext from '../../context'
@@ -99,7 +98,7 @@ class Services extends React.Component {
           <Col md={6} className="service border-side">
             <AnimationContainer delay={400} animation="fadeInDown fast">
               <div className="icon">
-                <FontAwesomeIcon icon={faAngular} />
+                <FontAwesomeIcon icon={faMobile} />
               </div>
               <h4>Mobile App Development</h4>
               <p>
