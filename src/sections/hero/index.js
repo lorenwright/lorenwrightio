@@ -54,7 +54,7 @@ class Hero extends React.Component {
           </Col>
           <Col md={6} className="img">
             <img
-              src={this.props.mainImg.childImageSharp.fluid.src}
+              src={this.props.mainImg}
               alt="person"
             />
           </Col>
@@ -64,10 +64,22 @@ class Hero extends React.Component {
   }
 
   icons() {
-    return this.props.icons.edges.map((value, index) => {
+    const icons = [
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '10',
+    ]
+    return icons.map((value, index) => {
       return (
         <img
-          src={value.node.childImageSharp.fluid.src}
+          src={'img/icons/' + value + '.png'}
           className={`animated fadeIn move-${
             Math.floor(Math.random() * 10) % 2 === 0 ? 'up' : 'down'
           } float-image`}
@@ -86,34 +98,5 @@ class Hero extends React.Component {
 }
 
 export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        icons: allFile(
-          filter: {
-            extension: { regex: "/(png)/" }
-            relativeDirectory: { eq: "icons" }
-          }
-        ) {
-          edges {
-            node {
-              childImageSharp {
-                fluid(maxWidth: 100) {
-                  src
-                }
-              }
-            }
-          }
-        }
-        Img: file(relativePath: { eq: "person.jpg" }) {
-          childImageSharp {
-            fluid(maxWidth: 2000) {
-              src
-            }
-          }
-        }
-      }
-    `}
-    render={({ icons, Img }) => <Hero icons={icons} mainImg={Img} {...props} />}
-  />
+  <Hero mainImg="img/person.jpg" {...props} />
 )
